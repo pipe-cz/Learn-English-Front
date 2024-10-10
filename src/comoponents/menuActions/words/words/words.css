@@ -1,0 +1,12 @@
+.words-container{
+  margin: 2rem;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+  .word-contaienr{
+ } 
+  }

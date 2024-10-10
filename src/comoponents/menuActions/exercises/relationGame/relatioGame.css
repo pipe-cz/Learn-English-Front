@@ -1,0 +1,71 @@
+
+.game-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.word-pair {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.select-word {
+  flex: 1;
+  margin-right: 20px;
+  padding: 8px;
+  font-size: 16px;
+  max-width: 200px;
+}
+
+
+.game-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+
+.check-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.check-button:hover {
+  background-color: #45a049;
+}
+
+
+.results {
+  margin-top: 20px;
+}
+
+
+@media (max-width: 600px) {
+  .word-pair {
+    flex-direction: column;
+  }
+
+  .select-word {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .game-image {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,14 @@
+@media screen and (max-width: 991px) {
+  .main-container {
+    flex-direction: column; /* Cambia la dirección del flex container a columna */
+  }
+  
+  .menu-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #e7efe9;
+  }
+
+}
+

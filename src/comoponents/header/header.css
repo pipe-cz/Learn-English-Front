@@ -1,0 +1,26 @@
+  .header-container{
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.bg-body-tertiary{
+  margin-left: initial;
+  /* background-color: rgb(23, 3, 12); */
+  /* width: 100%; */
+
+}
+
+.container{
+  /* margin-left: initial; */
+margin: 0;
+}
+
+.nav-link{
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover{
+  background-color: #b9d4c1;
+  border-radius: 8px;
+}

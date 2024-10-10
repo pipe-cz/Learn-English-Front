@@ -1,0 +1,22 @@
+.page-container{
+  position: relative;
+  /* min-height: 90vh; */
+  /* font-family: 'Coming Soon', cursive; */
+  font-family: 'Noto Sans JP Variable', sans-serif;
+  background-color: #e7efe9;
+}
+
+/* .content-wrap{
+  height: 100vh;
+} */
+
+.main-container{
+display: flex;
+justify-content: space-between;
+}
+ 
+@media screen and (max-width: 991px) {
+  .main-container {
+    flex-direction: column; /* Cambia la dirección del flex container a columna */
+  }
+}

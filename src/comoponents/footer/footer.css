@@ -1,0 +1,17 @@
+.footer-container {
+  display: flex;
+  gap: 20px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #e7efe9;
+  box-shadow: 0px -2px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 991px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}

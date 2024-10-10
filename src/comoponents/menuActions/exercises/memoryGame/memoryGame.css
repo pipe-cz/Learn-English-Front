@@ -1,0 +1,59 @@
+.memory-game-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card.flipped {
+  transform: rotateY(360deg);
+  background-color: #e0e0e0;
+}
+
+.card-image, .card-word {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.card-word {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.attempts {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.card-back {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
