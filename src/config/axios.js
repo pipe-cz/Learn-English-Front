@@ -7,7 +7,7 @@ export const headers = {
   Authorization: `Bearer ${getToken()}`,
 }
 
-const urlApi = "http://localhost:8000"
+const urlApi = "https://learn-english-back-production.up.railway.app/"
 const axiosInstance = axios.create({
   baseURL: urlApi,
 })
