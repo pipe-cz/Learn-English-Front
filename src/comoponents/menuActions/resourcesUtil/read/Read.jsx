@@ -48,34 +48,39 @@ function Read() {
   return (
     <div className="read-container">
       <h3 className="title">Practica tu lectura</h3>
-      <p>Escoge el nivel que deseas practicar</p>
-      <label htmlFor="easy">
+      <p>
+        <b>Escoge el nivel que deseas practicar</b>
+      </p>
+      <label htmlFor="easy" className="select-level">
         <input
           type="radio"
           name="level"
           value="easy"
           id="easy"
           onChange={handleLevelChange}
+          className="select-level"
         />
         Fácil
       </label>
-      <label htmlFor="medium">
+      <label htmlFor="medium" className="select-level">
         <input
           type="radio"
           name="level"
           value="medium"
           id="medium"
           onChange={handleLevelChange}
+          className="select-level"
         />
         Medio
       </label>
-      <label htmlFor="hard">
+      <label htmlFor="hard" className="select-level">
         <input
           type="radio"
           name="level"
           value="hard"
           id="hard"
           onChange={handleLevelChange}
+          className="select-level"
         />
         Difícil
       </label>
@@ -93,7 +98,7 @@ function Read() {
               onClick={() => openModal(text.text, text.translate)}
               style={{ cursor: "pointer" }}
             >
-              {index+1 +"."+ " " + text.text.slice(0, 80) + "..."}
+              {index + 1 + "." + " " + text.text.slice(0, 80) + "..."}
             </p>
           </div>
         ))}
@@ -108,11 +113,7 @@ function Read() {
             <h4 className="title">Texto Completo</h4>
             <p>{modalText}</p>
 
-            <Button
-              className="button"
-              onClick={toggleTranslation}
-              variant="btn btn-success"
-            >
+            <Button className="btn-text" onClick={toggleTranslation} variant="btn btn-success">
               {showTranslation ? "Ocultar Traducción" : "Ver Traducción"}{" "}
             </Button>
 
