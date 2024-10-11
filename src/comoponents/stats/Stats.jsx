@@ -23,13 +23,6 @@ function BasicExample() {
     const totalErrors = data.reduce((acc, curr) => acc + curr.errors, 0);
     const totalQuestions = totalCorrect + totalErrors;
 
-    if (totalQuestions === 0) {
-      return {
-        averageCorrect: 0,
-        averageErrors: 0,
-      };
-    }
-
     return {
       averageCorrect: ((totalCorrect / totalQuestions) * 100).toFixed(2),
       averageErrors: ((totalErrors / totalQuestions) * 100).toFixed(2),
@@ -39,7 +32,9 @@ function BasicExample() {
   const averages = calculateAverages(stats);
 
   return (
-    <Table striped bordered hover>
+    <div className='stats-container'>
+      <h4 className='subtitle'>Estadísticas</h4>
+    <Table striped bordered hover >
       <thead>
         <tr>
           <th>#</th>
@@ -65,6 +60,7 @@ function BasicExample() {
         </tr>
       </tbody>
     </Table>
+    </div>
   );
 }
 
