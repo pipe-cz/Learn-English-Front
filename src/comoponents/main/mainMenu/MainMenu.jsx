@@ -1,10 +1,8 @@
 import Navbar from "react-bootstrap/Navbar"
 import { Link } from "react-router-dom"
 import { privates, publics } from "../../../routes/routes"
-import { getToken } from "../../../utils/token"
 import {
   Controller,
-  Lightbulb,
   Book,
   FileWord,
   GraphUpArrow,
@@ -22,12 +20,12 @@ function MainMenu() {
       <Link to={publics.EXERSICES} className="text-decoration-none">
         <Navbar>
           <Navbar.Brand href="#" className="link-menu">
-            Ejercicios de práctica
+            Ejercicios
           </Navbar.Brand>
           <div className="icon-menu">
             <OverlayTrigger
               overlay={
-                <Tooltip id="tooltip-disabled">Ejercicios de práctica</Tooltip>
+                <Tooltip id="tooltip-disabled">Ejercicios</Tooltip>
               }
             >
               <span className="d-inline-block">
