@@ -94,12 +94,12 @@ function Read() {
       <div>
         {textsRead.map((text, index) => (
           <div key={index}>
-            <p
+            <h5
               onClick={() => openModal(text.text, text.translate)}
               style={{ cursor: "pointer" }}
             >
               {index + 1 + "." + " " + text.text.slice(0, 80) + "..."}
-            </p>
+            </h5>
           </div>
         ))}
       </div>
