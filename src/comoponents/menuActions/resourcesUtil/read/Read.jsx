@@ -16,7 +16,7 @@ function Read() {
   }
 
   const handleClick = () => {
-    // console.log("Nivel seleccionado:", selectedLevel)
+   
     if (selectedLevel === "easy") {
       setTexts(texts.filter((text) => text.type === 1))
     }

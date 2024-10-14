@@ -1,6 +1,6 @@
 import { useState } from "react";
 import audios from "../../../auxility/audios/audios";
-import "./listen.css"; // Asegúrate de tener este archivo CSS
+import "./listen.css"; 
 import { Button } from "react-bootstrap";
 
 function Listen() {
@@ -49,7 +49,6 @@ function Listen() {
         ))}
       </div>
 
-      {/* Modal para el audio */}
       {isModalOpen && modalAudio && (
         <div className="modal">
           <div className="modal-content">
