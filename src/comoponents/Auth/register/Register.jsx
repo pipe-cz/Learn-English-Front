@@ -1,29 +1,45 @@
-import React, { useState } from "react"; // Importa useState
+import { useState } from "react";
 import AuthButtons from "../../../shared/AuthButtons";
 import "../login/login.css";
 import { axiosInstance as axios } from "../../../config/axios";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap"; // Importa Alert de react-bootstrap
+import { Alert } from "react-bootstrap"; 
 
 function Register() {
   const navigate = useNavigate();
-  const [alert, setAlert] = useState({ show: false, message: "", type: "" }); // Estado para la alerta
+  const [alert, setAlert] = useState({ show: false, message: "", type: "" });
 
   const validatePassword = (password, passwordValidation) => {
     return password === passwordValidation;
   };
 
   const register = async (userData = "") => {
-    const response = await axios.post("/api/register", userData);
-    if (response.status === 201) {
-      setAlert({
-        show: true,
-        message: "Registro exitoso",
-        type: "success"
-      });
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000); // Espera 2 segundos antes de redirigir
+    try {
+      const response = await axios.post("/api/register", userData);
+      if (response.status === 201) {
+        setAlert({
+          show: true,
+          message: "Registro exitoso",
+          type: "success"
+        });
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 422) { // 409: Conflict
+        setAlert({
+          show: true,
+          message: "Este usuario ya está registrado",
+          type: "danger"
+        });
+      } else {
+        setAlert({
+          show: true,
+          message: "Error en el registro. Intente de nuevo más tarde.",
+          type: "danger"
+        });
+      }
     }
   };
 
@@ -31,6 +47,16 @@ function Register() {
     e.preventDefault();
     const data = new FormData(e.target);
     const userData = Object.fromEntries(data.entries());
+
+    if (userData.password.length < 6) {
+      setAlert({
+        show: true,
+        message: "La contraseña debe tener al menos 6 caracteres",
+        type: "danger"
+      });
+      return;
+    }
+
     if (!validatePassword(userData.password, userData.txtPasswordValidation)) {
       setAlert({
         show: true,
@@ -39,6 +65,7 @@ function Register() {
       });
       return;
     }
+
     register(userData);
   };
 
@@ -86,7 +113,7 @@ function Register() {
                   id="txtPassword"
                   placeholder="123456"
                   name="password"
-                  min={6}
+                  minLength={6}
                 />
               </div>
               <div className="mb-3">
@@ -100,7 +127,7 @@ function Register() {
                   id="txtPasswordValidation"
                   placeholder="123456"
                   name="txtPasswordValidation"
-                  min={6}
+                  minLength={6}
                 />
               </div>
               <div className="mb-3 d-flex justify-content-center">

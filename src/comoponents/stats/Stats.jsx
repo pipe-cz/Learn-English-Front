@@ -23,6 +23,14 @@ function BasicExample() {
     const totalErrors = data.reduce((acc, curr) => acc + curr.errors, 0);
     const totalQuestions = totalCorrect + totalErrors;
 
+   
+    if (totalQuestions === 0) {
+      return {
+        averageCorrect: '0.00',
+        averageErrors: '0.00',
+      };
+    }
+
     return {
       averageCorrect: ((totalCorrect / totalQuestions) * 100).toFixed(2),
       averageErrors: ((totalErrors / totalQuestions) * 100).toFixed(2),
@@ -34,32 +42,32 @@ function BasicExample() {
   return (
     <div className='stats-container'>
       <h4 className='subtitle'>Estadísticas</h4>
-    <Table striped bordered hover >
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Fecha</th>
-          <th>Correctas</th>
-          <th>Errores</th>
-        </tr>
-      </thead>
-      <tbody>
-        {stats.map((attempt, index) => (
-          <tr key={attempt.id}>
-            <th>{index + 1}</th>
-            <td>{new Date(attempt.created_at).toLocaleString()}</td>
-            <td>{attempt.correct}</td>
-            <td>{attempt.errors}</td>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Fecha</th>
+            <th>Correctas</th>
+            <th>Errores</th>
           </tr>
-        ))}
-        <tr>
-          <td></td>
-          <th>Promedios</th>
-          <td>{averages.averageCorrect}%</td>
-          <td>{averages.averageErrors}%</td>
-        </tr>
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {stats.map((attempt, index) => (
+            <tr key={attempt.id}>
+              <th>{index + 1}</th>
+              <td>{new Date(attempt.created_at).toLocaleString()}</td>
+              <td>{attempt.correct}</td>
+              <td>{attempt.errors}</td>
+            </tr>
+          ))}
+          <tr>
+            <td></td>
+            <th>Promedios</th>
+            <td>{averages.averageCorrect}%</td>
+            <td>{averages.averageErrors}%</td>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 }
